@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Babesmash</title>
+		<link href="/images/favicon.ico" rel="icon" />
+		<%= stylesheet_link_tag 'main' %>
+		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<header id="masthead"> 
+			<h1>Babes Mash</h1>
+			<p>Good morning wood !</p>
+			<nav > <!-- The nav link semantically marks your main site navigation -->
+				<ul>
+					<li><%= link_to "Hot-test", root_path(), :anchor => "babes" %></li>
+					<li><%= link_to "Random", :controller => 'babe', :action => 'random' %></li>
+					<li><%= link_to "Best Babes", :controller => 'babe', :action => 'ranking' %></li>
+				</ul>
+			</nav>
+		</header>
+		<hr/>	
+		<%= yield %>
+		<footer id="colophon"> 
+			<section id="share"> 
+				<ul> 
+					<li id="twitter"><a href="<%= @twitterLink %>">Tweet</a></li> 
+					<li id="fb"><a href="<%= @facebookLink%>">Share on Facebook</a></li> 
+				</ul> 
+			</section> 
+			<section id="follow"> 
+				<p>Soon : rank pagination, random tips, <a title="AJAX" href="http://en.wikipedia.org/wiki/Ajax_(programming)">AJAX</a> and
+				<a title="Canvas Background" href="http://paulirish.com/">Canvas Background</a>.</p>
+				
+			</section> 
+			<p id="powered-by">
+				<%= link_to image_tag("http://www.w3.org/html/logo/badge/html5-badge-h-solo.png", :id=>"html5logo", :alt => "HTML5 Powered", :title => "HTML5 Powered" ), "http://www.w3.org/html/logo/" %>	
+				This site was built using 
+				<a href="http://lessframework.com/">Less Framework 4</a> and
+				<a href="http://html5boilerplate.com/">Html 5 Boilerplate</a> (front-end),
+				<a href="http://rubyonrails.org/">Ruby on Rails 3</a> (back-end),
+				and <a href="http://www.bonjourmadame.fr/">Bonjour Madame</a> (content).
+				Please send your comments and suggestions to <%= link_to "the dev-team","irc://irc.iiens.net:7000/mash"%>.
+			</p> 
+		</footer> 
+	</body>
+</html>

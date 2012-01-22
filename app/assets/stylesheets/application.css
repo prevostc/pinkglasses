@@ -1,0 +1,506 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+/*ni Korpi
+	http://lessframework.com
+	License: http://creativecommons.org/licenses/MIT/	*/
+
+
+/*	Resets
+	------	*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+a img {border: 0;}
+
+/*	Typography presets
+	------------------	*/
+
+.gigantic {
+	font-size: 110px;
+	line-height: 120px;
+	letter-spacing: -2px;
+}
+
+.huge {
+	font-size: 68px;
+	line-height: 72px;
+	letter-spacing: -1px;
+}
+
+.large, article h1 {
+	font-size: 42px;
+	line-height: 48px;
+	margin: 0 0 24px;
+}
+
+.bigger, #masthead h1, #follow p, article .opening p {
+	font-size: 26px;
+	line-height: 36px;
+}
+
+.big, article h2 {
+	font-size: 22px;
+	line-height: 30px;
+}
+
+body, aside h1 {
+	font: 16px/24px "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Cambria, Georgia, serif;
+}
+
+.small, small {
+	font-size: 13px;
+	line-height: 18px;
+}
+
+abbr {letter-spacing: 1px;}
+
+a {color: rgb(60,97,158); text-decoration: none;}
+a:hover, a:active {border-bottom: 1px solid rgb(60,97,158);}
+
+h1, h2 {color: rgb(23,23,23); font-weight: normal;}
+
+::selection 	 	{background: rgb(255,255,158);}
+::-moz-selection 	{background: rgb(255,255,158);}
+img::selection 		{background: transparent;}
+img::-moz-selection {background: transparent;}
+
+body {-webkit-tap-highlight-color: rgb(255,255,158);}
+
+#footer p {
+	margin-bottom: 24px;
+}
+
+
+/*		Default Layout: 992px (62em). 
+		Gutters: 24px (1.5em).
+		Outer margins: 48px (3em).
+		Leftover space for scrollbars @1024px: 32px.
+------------------------------------------------------------------------------
+cols	1     2      3      4      5      6      7      8      9      10
+px		68    160    252    344    436    528    620    712    804    896	*/
+
+body {
+	padding: 72px 0 84px;
+	position: relative;
+	background: rgb(232,232,232);
+	color: rgb(60,60,60);
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+hr {
+	border: none;
+	border-top: 1px solid rgb(195,195,195);
+	clear: both;
+	margin-top: 30px;
+	margin-bottom: 0px;
+}
+
+#masthead, article, #colophon {
+	padding-left: 48px;
+	padding-right: 48px;
+	margin: 0 auto;
+	width: 896px;
+	position: relative;
+}
+
+
+#masthead h1 {
+	margin: 0;
+	padding-top: 3px;
+	line-height: 33px;
+	font-weight: normal;
+}
+
+#masthead p {color: rgb(97,97,97);}
+/*Goddamn Android*/ article h1, article p, article section h2 {background: rgb(232,232,232);}
+
+#masthead nav {
+	position: absolute;
+	right: 48px; top: 8px;
+}
+
+#masthead li, #share li {
+	float: left;
+	list-style: none;
+	margin-left: 12px;
+}
+
+#masthead a, #share a {
+	display: block;
+	padding: 11px 15px;
+	border: 1px solid rgb(195,195,195);
+	color: rgb(60,97,158);
+	-webkit-tap-highlight-color: rgba(0,0,0, 0);
+	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0, 0.05);
+	   -moz-box-shadow: inset 0 0 5px rgba(0,0,0, 0.05);
+		box-shadow: inset 0 0 5px rgba(0,0,0, 0.05);
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+		border-radius: 3px;
+	-webkit-transition: all 0.123s ease-out;
+	   -moz-transition: all 0.123s ease-out;  
+		transition: all 0.123s ease-out;
+}
+
+#masthead a:hover, #masthead a:active, #share a:hover, #share a:active {
+	text-decoration: none;
+	border-color: rgb(158,158,158);
+	-webkit-box-shadow: inset 0 0 8px rgba(0,0,0, 0.38);
+	   -moz-box-shadow: inset 0 0 8px rgba(0,0,0, 0.38);
+		box-shadow: inset 0 0 8px rgba(0,0,0, 0.38);
+}
+
+#masthead a:active, #masthead .touched, #share a:active, #share .touched {
+	background: rgb(60,97,158);
+	border-color: rgb(23,37,60);
+	color: rgb(232,241,255);
+	text-shadow: 0 -1px 0 rgba(0,0,0, 0.9);
+	-webkit-box-shadow: inset 0 0 12px rgba(0,0,0, 0.765);
+	   -moz-box-shadow: inset 0 0 12px rgba(0,0,0, 0.765);
+			box-shadow: inset 0 0 12px rgba(0,0,0, 0.765);
+}
+
+aside {
+	position: absolute;
+	z-index: 800;
+	background: rgb(255,255,158);
+	background: -webkit-gradient(linear, left top, left bottom, 
+		from(rgb(255,255,158)), 
+		color-stop(0.764, rgb(255,255,181))
+	);
+	color: rgb(60,60,37);
+	width: 204px;
+	padding: 36px 24px;
+	-webkit-box-shadow: 0 3px 3px rgba(0,0,0, 0.235);
+	   -moz-box-shadow: 0 3px 3px rgba(0,0,0, 0.235);
+		box-shadow: 0 3px 3px rgba(0,0,0, 0.235);
+	-webkit-transform: rotate(1deg);
+	   -moz-transform: rotate(1deg);
+		transform: rotate(1deg);
+}
+
+aside ul, aside p, aside h2 {	
+	font-family: "sam", Chalkboard, "Comic Sans MS", sans-serif;
+	font-size: 21px;
+	line-height: 24px;
+}
+
+aside h2 {
+	font-weight: normal;
+	color: rgb(158,23,0);
+}
+
+article h2 {margin-bottom: 12px;}
+
+aside li {
+	list-style: none;
+	margin-top: 6px;
+}
+
+aside li:first-child {margin-top: 0;}
+
+article {
+	border-width: 1px 0 0 0;
+	clear: both;
+}
+
+article {
+	margin-top: 30px;
+	padding-right: 24px;
+	width: 920px;
+}
+
+article .opening {
+	margin-bottom: 48px;
+	width: 620px;
+}
+
+nav.pagination {
+	width:920px;
+	text-align:center;
+	margin-top: 10px;
+} 
+
+.centeredsection{
+}
+.centeredcontent{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.leftsection, .rightsection {
+	display:block;
+	width: 460px;
+	float: left;
+	margin-bottom: 36px;
+}
+.leftcontent, .rightcontent {
+	width: 436px;
+}
+
+article section h2 {padding-top: 24px;}
+
+.column {
+	background: rgb(195,195,195);
+	width: 10px; height: 252px;
+}
+
+.opening {
+	width: 528px;
+}
+
+#colophon {
+	border-width: 1px 0 0 0;
+	padding-top: 35px;
+}
+
+#share, #follow {
+	position: absolute;
+	left: 36px; top: 35px;
+}
+
+#twitter a {color: #005F81;}
+#fb a {color: #3B5998;}
+
+#follow {
+	top: 95px; left: 48px;
+	width: 436px;
+}
+	
+#powered-by, #versions {
+	width: 436px;
+	padding-left: 460px;
+}
+
+#versions {margin-top: 24px;}
+#html5logo{
+	float: right;
+	width: 63px;
+	height: 64px;
+}
+
+/*		Tablet Layout: 768px (48em).
+		Gutters: 24px (1.5em).
+		Outer margins: 28px (1.75em).
+		Inherits styles from: Default layout.
+------------------------------------------------------------------
+cols	1     2      3      4      5      6      7      8
+px		68    160    252    344    436    528    620    712		*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	body {
+		padding: 48px 0 72px;
+	}
+	#masthead, article, #colophon {
+		padding-left: 28px;
+		padding-right: 28px;
+		width: 712px;
+	}	
+	#masthead nav {right: 28px;}
+	article .openingi, .centeredsection {
+		margin-bottom: 48px;
+		width: 712px;
+	}
+	article .opening p {
+		font-size: 22px;
+		line-height: 30px;
+	}
+	article section {
+		float: left;
+	}
+	.centeredsection{
+		width: 712px;
+	}
+	.leftsection, .rightsection {
+		width: 356px;
+	}
+	.leftcontent, .rightcontent {
+		width: 336px;
+		margin-left: 10px;
+	}
+	#follow {position: static;}	
+	#powered-by {
+		margin-top: 24px;
+		padding: 0;
+	}
+	#versions {
+		position: absolute;
+		bottom: 0;
+		margin: 0;
+		padding: 0;
+	}
+	#share, #versions {left: 488px; width: 252px; text-align: center;}
+	#share li {margin: 0 0 12px; float: none;}
+	#html5logo{
+		float: left;
+		margin-right:15px;
+	}
+}
+
+
+
+/*		Mobile Layout: 320px (20em).
+		Gutters: 24px (1.5em).
+		Outer margins: 34px (2.125em).
+		Inherits styles from: Default Layout.
+--------------------------------------------------
+cols	1     2      3
+px		68    160    252
+em		4.25  10.0   15.75						*/
+
+@media only screen and (max-width: 767px) {
+	body {
+		padding: 24px 0 60px;
+	}
+	#masthead, article, #colophon {
+		padding-left: 34px;
+		padding-right: 34px;
+		width: 252px;
+	}
+	#masthead {text-align: center;}
+	#masthead nav {
+		right: auto; top: auto; 
+		left: 34px; top: 104px;
+		z-index: 888;
+	}
+	#masthead li {width: 252px; margin: 0 0 6px; float: none;}
+	#masthead a {text-align: center;}
+	/* the nav bar is now below the hr without pushing the articles */
+	body>article:first-of-type {
+		margin-top:180px;
+	}
+	article {
+		margin-top: 0px;
+		padding-top: 20px;
+	}
+	article h1{
+		margin-bottom:0px;
+	}
+	article section, article .opening, #colophon section, #colophon p {
+		width: auto;
+		position: static;
+		padding: 0;
+		height: auto;
+	}
+	article .opening {
+		margin-bottom: 10px;
+	}
+	article .opening p, article h2 {
+		font-size: 16px;
+		line-height: 24px;
+	}
+	.centeredsection, .centeredcontent {
+		width: 252px;
+	}
+	.leftsection, .rightsection {
+		width: 252px;
+		margin-bottom: 20px;
+	}
+	.leftcontent, .rightcontent {
+		width: 252px;
+	}
+	article h2 {text-transform: uppercase; letter-spacing: 1px;}
+	article h1 {
+		font-size: 26px;
+		line-height: 36px;
+	}
+	#follow p {margin-bottom: 24px; clear: both;}
+	#share li, #share ul {margin: 0 0 12px; float: none; text-align: center;}
+	hr {
+		margin-top: 20px;
+	}
+	#colophon {
+		padding-top:20px;
+	}	
+	#html5logo{
+		float: right;
+		width: 45px;
+		height: 46px;
+		margin-left:10px;
+	}
+}
+
+
+
+/*		Wide Mobile Layout: 480px (30em).
+		Gutters: 24px (1.5em).
+		Outer margins: 22px (1.375em).
+		Inherits styles from: Default Layout, Mobile Layout.
+--------------------------------------------------------------
+cols	1     2      3      4      5
+px		68    160    252    344    436						*/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	body {
+		padding: 24px 0 48px;
+	}
+	#masthead, article, #colophon {
+		padding-left: 22px;
+		padding-right: 22px;
+		width: 436px;
+	}
+	#masthead {text-align: left;}
+	#masthead nav {left: 10px; width: 446px; top: 106px; }
+	#masthead li {width: auto; margin: 0 0 0 12px; float: left;}
+	/* the nav bar is now below the hr without pushing the articles */
+	body>article:first-of-type {
+		margin-top:65px;
+	}
+	article {
+		margin-top: 0px;
+		padding-top: 20px;
+	}
+	.centeredsection, .centeredcontent {
+		width: 436px;
+	}
+	.leftsection, .rightsection {
+		width: 436px;
+		margin-bottom: 20px;
+	}
+	.leftcontent, .rightcontent {
+		width: 436px;
+	}
+	#follow p {
+		font-size: 26px;
+		line-height: 36px;
+	}
+	#share li {margin: 0 12px 24px 0; float: left;}
+	hr {
+		margin-top: 20px;
+	}
+	#colophon {
+		padding-top:10px;
+	}
+	#html5logo {
+		margin-right:0px;
+		width: 63px;
+		height: 64px;
+	}	
+}

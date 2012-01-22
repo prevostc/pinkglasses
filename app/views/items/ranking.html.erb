@@ -1,0 +1,8 @@
+<%= paginate @items, :window => 0, :outer_window => 1 %>
+
+<% @items.each do |item| %>
+	<% @item = item %>
+	<%= render "items/show" %>
+<% end %>
+
+<%= paginate @items, :window => 0, :outer_window => 1 %>

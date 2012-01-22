@@ -1,0 +1,20 @@
+
+<article id="items">
+	<section class="opening">
+		<h1>Item-test</h1>
+		<p>Which one is the hottest,
+			<%= link_to "left", item_path(@lItem) %> or
+			<%= link_to "right", item_path(@rItem) %>
+		? Click on your choice.</p>
+	</section>
+	<section class="leftsection">
+		<%= link_to image_tag(@lItem.image_path, :class => "leftcontent"), 
+		new_vote_path(:hot => @lItem.id, :not => @rItem.id)  %> 
+	</section>
+	<section class="rightsection">
+		<%= link_to image_tag(@rItem.image_path, :class => "rightcontent"), 
+		new_vote_path(:hot => @rItem.id, :not => @lItem.id) %> 
+	</section>
+</article>
+
+<hr />
