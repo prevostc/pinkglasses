@@ -34,4 +34,7 @@ Pinkglasses::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # allow user creation
+  config.allow_new_user = true
 end

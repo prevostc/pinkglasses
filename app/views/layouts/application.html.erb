@@ -8,33 +8,40 @@
 		<%= csrf_meta_tag %>
 	</head>
 	<body>
-		<% if current_user %>
-		  Logged in as <%= current_user.username %>.
-		  <%= link_to "Log out", logout_path %>
-		<% else %>
-		  <%= link_to "Sign up", signup_path %> or
-		  <%= link_to "log in", login_path %>.
-		<% end %>
 		<header id="masthead"> 
 			<h1>Items Mash</h1>
-			<p>Good morning wood !</p>
-			<nav > <!-- The nav link semantically marks your main site navigation -->
-				<ul>
-					<li><%= link_to "Item-test", root_path(), :anchor => "items" %></li>
-					<li><%= link_to "Random", random_items_path() %></li>
-					<li><%= link_to "Best Items", ranking_items_path() %></li>
-				</ul>
-			</nav>
+			<% if current_user %>
+			  <p>Good morning <%= current_user.username %>.</p>
+			<% else %>
+				<p>Good morning wood !</p>
+			<% end %>
+			
+			<% if current_user %>
+				<nav > <!-- The nav link semantically marks your main site navigation -->
+					<ul>
+						<li><%= link_to "Item-test", root_path(), :anchor => "items" %></li>
+						<li><%= link_to "Random", random_items_path() %></li>
+						<li><%= link_to "Best Items", ranking_items_path() %></li>
+						<li><% if current_user %>
+							<%= link_to "Log out", logout_path %>
+						<% else %>
+							<%= link_to "Log in", login_path %>
+						<% end %></li>
+					</ul>
+				</nav>
+			<% end %>
 		</header>
 		<hr/>	
 		<%= yield %>
 		<footer id="colophon"> 
-			<section id="share"> 
-				<ul> 
-					<li id="twitter"><a href="<%= @twitterLink %>">Tweet</a></li> 
-					<li id="fb"><a href="<%= @facebookLink%>">Share on Facebook</a></li> 
-				</ul> 
-			</section> 
+			<% if current_user %>
+				<section id="share"> 
+					<ul> 
+						<li id="twitter"><a href="<%= @twitterLink %>">Tweet</a></li> 
+						<li id="fb"><a href="<%= @facebookLink %>">Share on Facebook</a></li> 
+					</ul> 
+				</section> 
+			<% end %>
 			<section id="follow"> 
 				<p>Soon : rank pagination, random tips, <a title="AJAX" href="http://en.wikipedia.org/wiki/Ajax_(programming)">AJAX</a> and
 				<a title="Canvas Background" href="http://paulirish.com/">Canvas Background</a>.</p>

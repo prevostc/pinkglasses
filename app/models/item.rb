@@ -11,6 +11,6 @@ class Item < ActiveRecord::Base
   end
   
   def rank
-    Item.count(:all, :conditions => ['score > ?', self.score])
+    Item.count(:all, :conditions => ['score > ?', self.score]).to_i + 1
   end
 end

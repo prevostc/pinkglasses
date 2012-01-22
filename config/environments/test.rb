@@ -34,4 +34,7 @@ Pinkglasses::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  # allow user creation
+  config.allow_new_user = true
 end
