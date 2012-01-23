@@ -49,3 +49,7 @@ gem 'kaminari'
 
 # authentication
 gem 'sorcery'
+
+# assets precompilation
+gem 'execjs'
+gem 'therubyracer'
