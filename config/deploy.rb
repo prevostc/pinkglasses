@@ -14,6 +14,16 @@ role :db,  application, :primary => true # This is where Rails migrations will r
 set :use_sudo, false
 set :deploy_to, "/var/www/#{application}"
 
+set :default_environment, {
+  'PATH'         => '/usr/local/rvm/bin:/usr/local/rvm/gems/ruby-1.9.3-p0/gems:$PATH',
+  'RUBY_VERSION' => 'ruby 1.9.3',
+  'GEM_HOME'     => '/usr/local/rvm/gems/ruby-1.9.3-p0',
+  'GEM_PATH'     => '/usr/local/rvm/gems/ruby-1.9.3-p0:/usr/local/rvm/gems/ruby-1.9.3-p0@global',
+  'BUNDLE_PATH'  => '/usr/local/rvm/gems/ruby-1.9.3-p0',  # If you are using bundler.
+  'MY_RUBY_HOME' => '/usr/local/rvm/rubies/ruby-1.9.3-p0',
+  'IRBRC'        => '/usr/local/rvm/rubies/ruby-1.9.3-p0/.irbrc',
+}
+
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
@@ -22,6 +32,11 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
+    run "unlink /var/www/pinkglasses.fr/current/db/production.sqlite3 || echo \"\""
+    run "ln -s /var/www/pinkglasses.fr/shared/db.sqlite3 /var/www/pinkglasses.fr/current/db/production.sqlite3"
+    run "unlink /var/www/pinkglasses.fr/current/public/images/glasses || echo \"\""
+    run "ln -s /var/www/pinkglasses.fr/shared/pinkglasses_imgs /var/www/pinkglasses.fr/current/public/images/glasses"
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
+
