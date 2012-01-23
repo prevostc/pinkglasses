@@ -19,8 +19,8 @@ class ItemsController < ApplicationController
     end
     
     # view parameters 
-    url = ""
-    title = "Awesome boo..braaaain !"
+    url = "TODO !"
+    title = "ENSIIE pink glasses challenge"
     @twitterLink = twitter_link(url, title)
     @facebookLink = facebook_link(url, title)
   end
@@ -29,8 +29,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     # view parameters 
     # request.env["SERVER_ADDR"]
-    url = ""
-    title = "Leave it to luck !"
+    url = "TODO !"
+    title = "ENSIIE pink glasses challenge"
     @twitterLink = twitter_link(url, title)
     @facebookLink = facebook_link(url, title)
   end
@@ -39,8 +39,8 @@ class ItemsController < ApplicationController
     @item = Item.random
     # view parameters 
     # request.env["SERVER_ADDR"]
-    url = ""
-    title = "Leave it to luck !"
+    url = "TODO !"
+    title = "ENSIIE pink glasses challenge"
     @twitterLink = twitter_link(url, title)
     @facebookLink = facebook_link(url, title)
   end
@@ -49,8 +49,8 @@ class ItemsController < ApplicationController
     @items = Item.order('score DESC').page(params[:page]).per(5)
     # view parameters 
     # request.env["SERVER_ADDR"]
-    url = ""
-    title = "Caution, may break your eyes !"
+    url = "TODO !"
+    title = "ENSIIE pink glasses challenge"
     @twitterLink = twitter_link(url, title)
     @facebookLink = facebook_link(url, title)
   end

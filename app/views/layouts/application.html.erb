@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Itemsmash</title>
+		<title>Pink Glasses</title>
 		<link href="/images/favicon.ico" rel="icon" />
 
 		<%= stylesheet_link_tag 'application' %>
@@ -32,7 +32,7 @@
 			<% if current_user %>
 				<nav > <!-- The nav link semantically marks your main site navigation -->
 					<ul>
-						<li><%= link_to "Challenge", root_path(), :anchor => "items" %></li>
+						<li><%= link_to "Challenge", root_path(:anchor => "items") %></li>
 						<li><%= link_to "Random", random_items_path() %></li>
 						<li><%= link_to "Ranking", ranking_items_path() %></li>
 						<li><% if current_user %>
@@ -57,9 +57,8 @@
 				</section> 
 			<% end %>
 			<section id="follow"> 
-				<p>Soon : rank pagination, random tips, <a title="AJAX" href="http://en.wikipedia.org/wiki/Ajax_(programming)">AJAX</a> and
+				<p>Soon : random tips, <a title="AJAX" href="http://en.wikipedia.org/wiki/Ajax_(programming)">AJAX</a> and
 				<a title="Canvas Background" href="http://paulirish.com/">Canvas Background</a>.</p>
-				
 			</section> 
 			<p id="powered-by">
 				<%= link_to image_tag("http://www.w3.org/html/logo/badge/html5-badge-h-solo.png", :id=>"html5logo", :alt => "HTML5 Powered", :title => "HTML5 Powered" ), "http://www.w3.org/html/logo/" %>	
@@ -67,8 +66,8 @@
 				<a href="http://lessframework.com/">Less Framework 4</a> and
 				<a href="http://html5boilerplate.com/">Html 5 Boilerplate</a> (front-end),
 				<a href="http://rubyonrails.org/">Ruby on Rails 3</a> (back-end),
-				and <a href="http://www.bonjourmadame.fr/">Bonjour Madame</a> (content).
-				Please send your comments and suggestions to <%= link_to "the dev-team","irc://irc.iiens.net:7000/mash"%>.
+				and YOU ! (content).
+				Please send your comments and suggestions to <%= link_to "the dev-team","irc://irc.iiens.net:7000/pinkglasses"%>.
 			</p> 
 		</footer> 
 	</body>
