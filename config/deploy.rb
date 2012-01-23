@@ -1,3 +1,5 @@
+load "deploy/assets"
+
 set :application, "pinkglasses.fr"
 set :repository,  "git://github.com/prevostc/pinkglasses.git"
 
