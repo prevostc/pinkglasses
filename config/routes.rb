@@ -1,9 +1,5 @@
 Pinkglasses::Application.routes.draw do
  
-  get "sessions/new"
-
-  get "users/new"
-
   root :to => 'items#challenge'
 
   resources :votes
@@ -17,7 +13,7 @@ Pinkglasses::Application.routes.draw do
   end
 
   get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
+  get "login" => "sessions#create", :as => "login"
   get "signup" => "users#new", :as => "signup"
   resources :users
   resources :sessions
