@@ -1,11 +1,9 @@
 
 <article id="items">
 	<section class="opening">
-		<h1>Item-test</h1>
-		<p>Which one is the hottest,
-			<%= link_to "left", item_path(@lItem) %> or
-			<%= link_to "right", item_path(@rItem) %>
-		? Click on your choice.</p>
+		<h1>Challenge</h1>
+		<p>Which one is the hottest, <%= link_to "left", item_path(@lItem) %> or <%= link_to "right", item_path(@rItem) %> ?
+		<strong>Click on your choice.</strong></p>
 	</section>
 	<section class="leftsection">
 		<%= link_to image_tag(@lItem.image_path, :class => "leftcontent"), 

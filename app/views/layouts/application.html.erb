@@ -22,7 +22,7 @@
 	</head>
 	<body>
 		<header id="masthead"> 
-			<h1>Items Mash</h1>
+			<h1>Pink Glasses</h1>
 			<% if current_user %>
 			  <p>Good morning <%= current_user.username %>.</p>
 			<% else %>
@@ -32,9 +32,9 @@
 			<% if current_user %>
 				<nav > <!-- The nav link semantically marks your main site navigation -->
 					<ul>
-						<li><%= link_to "Item-test", root_path(), :anchor => "items" %></li>
+						<li><%= link_to "Challenge", root_path(), :anchor => "items" %></li>
 						<li><%= link_to "Random", random_items_path() %></li>
-						<li><%= link_to "Best Items", ranking_items_path() %></li>
+						<li><%= link_to "Ranking", ranking_items_path() %></li>
 						<li><% if current_user %>
 							<%= link_to "Log out", logout_path %>
 						<% else %>
