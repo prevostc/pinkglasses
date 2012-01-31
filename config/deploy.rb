@@ -32,6 +32,7 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
+    run "mkdir -p #{current_path}/log && touch #{current_path}/log/production.log && chmod 0666 #{current_path}/log/production.log"
     run "unlink /var/www/pinkglasses.fr/current/db/production.sqlite3 || echo \"\""
     run "ln -s /var/www/pinkglasses.fr/shared/db.sqlite3 /var/www/pinkglasses.fr/current/db/production.sqlite3"
     run "unlink /var/www/pinkglasses.fr/current/public/images/glasses || echo \"\""
