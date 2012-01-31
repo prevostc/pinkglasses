@@ -16,7 +16,7 @@ class VotesController < ApplicationController
   
   
   def redirect_to_challenge
-    redirect_to challenge_items_path(:anchor => "items")
+    redirect_to challenge_items_path(:anchor => "pics")
   end
   
   # create new vote

@@ -32,6 +32,7 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && rake db:migrate RAILS_ENV=\"production\" && cd -"
     run "unlink /var/www/pinkglasses.fr/current/db/production.sqlite3 || echo \"\""
     run "ln -s /var/www/pinkglasses.fr/shared/db.sqlite3 /var/www/pinkglasses.fr/current/db/production.sqlite3"
     run "unlink /var/www/pinkglasses.fr/current/public/images/glasses || echo \"\""

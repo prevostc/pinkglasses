@@ -6,8 +6,10 @@
 		<p>Which one is the hottest, <%= link_to "left", item_path(@lItem) %> or <%= link_to "right", item_path(@rItem) %> ?
 		<strong>Click on your choice.</strong></p>
 	</section>
+	<div id="pics">
 	<%= render :partial => "challenge", :locals => { :side => "left", :hot => @lItem, :nhot => @rItem } %>
 	<%= render :partial => "challenge", :locals => { :side => "right", :nhot => @lItem, :hot => @rItem } %>
+	</div>
 </article>
 
 <hr />
