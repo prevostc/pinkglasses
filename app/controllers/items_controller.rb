@@ -18,6 +18,9 @@ class ItemsController < ApplicationController
       end
     end
     
+    # validity
+    session[:items] = [@rItem.id.to_s, @lItem.id.to_s]
+    
     # view parameters 
     url = "TODO !"
     title = "ENSIIE pink glasses challenge"

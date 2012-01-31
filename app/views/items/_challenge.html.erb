@@ -1,0 +1,10 @@
+<%= form_tag '/vote', :remote => false do %>
+	<section class="<%= side %>section">
+		<%= submit_tag side+"submit" ,:type => :image, :src => hot.image_path, :class => side + "content" %> 
+	</section>
+	<section class="hidden">
+		<%= hidden_field_tag :hot, hot.id %>
+		<%= hidden_field_tag :nhot, nhot.id %>
+	</section>
+<% end %>
+

@@ -32,18 +32,19 @@
 			<% if current_user %>
 				<nav > <!-- The nav link semantically marks your main site navigation -->
 					<ul>
-						<li><%= link_to "Challenge", root_path(:anchor => "items") %></li>
-						<li><%= link_to "Random", random_items_path() %></li>
+						<li><%= link_to "Challenge", challenge_items_path(:anchor => "items") %></li>
+						<li><%= link_to "Random", random_item_path() %></li>
 						<li><%= link_to "Ranking", ranking_items_path() %></li>
 						<li><% if current_user %>
-							<%= link_to "Log out", logout_path %>
+							<%= link_to "Log out", destroy_session_path %>
 						<% else %>
-							<%= link_to "Log in", login_path %>
+							<%= link_to "Log in", new_session_path %>
 						<% end %></li>
 					</ul>
 				</nav>
 			<% end %>
 			<p class="flash-notice"><%= flash[:notice] %></p>
+			<p class="flash-alert"><%= flash[:alert] %></p>
 		</header>
 		<hr/>	
 		<%= yield %>

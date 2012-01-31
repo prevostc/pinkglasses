@@ -1,22 +1,27 @@
 Pinkglasses::Application.routes.draw do
  
+  # root
   root :to => 'items#challenge'
 
-  resources :votes
+  # votes
+  post "vote" => "votes#create", :as => "create_vote" 
+  
+  # items
+  get "ramdom"    => "items#random",    :as => "random_item"
+  get "ranking"   => "items#ranking",   :as => "ranking_items"
+  get "challenge" => "items#challenge", :as => "challenge_items"
+  get "show/:id" => "items#show", :as => "item"
 
-  resources :items do
-    collection do
-      get 'random'
-      get 'ranking'
-      get 'challenge'
-    end
-  end
-
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#create", :as => "login"
-  get "signup" => "users#new", :as => "signup"
-  resources :users
-  resources :sessions
+  # sessions
+  get  "logout"  => "sessions#destroy", :as => "destroy_session"
+  get "login"   => "sessions#new", :as => "new_session"
+  post "sessions/create" => "sessions#create", :as => "create_session"
+  get "admin/session_cleanup"   => "sessions#cleanup", :as => "cleanup_sessions"
+  
+  # user
+  get "signup" => "users#new", :as => "new_user"
+  post "user/create" => "users#create", :as => "create_user"
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

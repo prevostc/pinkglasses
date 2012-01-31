@@ -15,6 +15,13 @@ class SessionsController < ApplicationController
   
   def destroy
     logout
-    redirect_to login_url, :notice => "Logged out!"
+    redirect_to new_session_url, :notice => "Logged out!"
   end
+  
+  # clean old sessions
+  def self.cleanup(period = 48.hours.ago)
+    session_store = ActiveRecord::SessionStore::Session
+    session_store.destroy_all ['updated_at < ?', period]
+  end
+
 end

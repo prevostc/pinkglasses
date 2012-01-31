@@ -1,6 +1,6 @@
 <article id="login">
 	<section class="centeredsection">
-		<%= form_tag sessions_path do %>
+		<%= form_tag create_session_path do %>
 		  <div class="field">
 		    <%= label_tag :username %>
 		    <%= text_field_tag :username, params[:username] %>
