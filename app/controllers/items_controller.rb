@@ -6,19 +6,13 @@ class ItemsController < ApplicationController
   end
 
   def challenge
-    # left item choice 
-    @lItem = Item.random
+    #item choice
+    limit = 20 # a smaller limit increase query speed, a greater limit enhance user experience when reloading challenge page (blank vote)
+    items = Item.limit(limit).order("updated_at ASC") # take only a few of the least recently voted pics  
+    @lItem = items[Random.rand(limit/2)] # choose one randomly in first half
+    @rItem = items[Random.rand((limit/2) - 1) + limit/2] # choose another in second half
     
-    # right item choice (different from lItem)  
-    stop = false
-    while not stop do
-      @rItem = Item.random
-      if @rItem.id != @lItem.id then
-        stop = true
-      end
-    end
-    
-    # validity
+    # validity, user can only vote for those two
     session[:items] = [@rItem.id.to_s, @lItem.id.to_s]
     
     # view parameters 
