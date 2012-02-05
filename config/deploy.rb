@@ -32,7 +32,7 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    upload("config/newrelic.yml", "#{current_path}/config/newrelic.yml", :via => :scp)
+    top.upload("config/newrelic.yml", "#{current_path}/config/newrelic.yml", :via => :scp)
     run "unlink #{current_path}/db/production.sqlite3 || echo \"\""
     run "ln -s #{shared_path}/db.sqlite3 #{current_path}/db/production.sqlite3"
     run "unlink #{current_path}/public/images/glasses || echo \"\""
