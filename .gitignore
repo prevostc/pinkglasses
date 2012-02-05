@@ -17,3 +17,7 @@
 /public/images/glasses/*
 
 /public/assets
+
+# there's a secret in here
+/config/newrelic.yml
+

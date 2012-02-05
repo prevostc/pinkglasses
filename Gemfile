@@ -53,3 +53,6 @@ gem 'sorcery'
 # assets precompilation
 gem 'execjs'
 gem 'therubyracer'
+
+# monitoring
+gem 'newrelic_rpm'
